@@ -50,7 +50,6 @@ impl Database {
 
         POOL.get_or_init(|| {
             Pool::builder()
-                .connection_timeout(std::time::Duration::from_secs(5))
                 .build(ConnectionManager::<DbCon>::new(Self::database_url()))
                 .unwrap()
         })
